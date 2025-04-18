@@ -1,0 +1,44 @@
+:root {
+  --main-blue: #0071bc;
+  --light-blue: #f2f7fc;
+  --hover-blue: #005fa3;
+  --green-bar: #00a651;
+  --gray-text: #5b5b5b;
+  --dark-text: #2e2e2e;
+  --white: #fff;
+  --text-menu: #24465c;
+
+  --search-color--border: #d3dade;
+  --gradient--blue-to-green: linear-gradient(
+    -90deg,
+    #0e76bc 0%,
+    #25aae1 20%,
+    #4cc5d8 39%,
+    #2bb673 60%,
+    #39b54a 78%,
+    #00a651 100%
+  );
+  /* main colors of logo
+  --blue-1: #0f75bc;
+  --blue-2: #25aae1;
+  --blue-3: #4cc5d8;
+  --green-1: #00a651;
+  --green-2: #2bb673;
+  --green-3: #39b54a;
+
+  /* shades of blue */
+  /* --blue-shade-text: #25a9e0; */
+
+  /* colors of titles */
+  /* --color-title: #24465c; */
+
+  /* colors of text, button */
+  /* --primary-light: #fff; */
+
+  /* colors of form */
+
+  /* --form-number: #558aa0;
+  --accent-blue: #0e76bc;
+  --accent-green-hover: #00a651;*/
+  --accent-orange: #fe7f03;
+}

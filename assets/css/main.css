@@ -1,0 +1,112 @@
+body {
+  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--white);
+  color: var(--dark-text);
+}
+
+.container {
+  width: 100%;
+  min-width: 1200px;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.top-bar {
+  height: 40px;
+  background-image: linear-gradient(to right, #4caf50, #2196f3);
+}
+
+.upper-info {
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 0px 50px;
+}
+
+header {
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo img {
+  height: 60px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-menu);
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: var(--green-bar);
+  color: var(--white);
+}
+
+nav ul li a .plus {
+  font-size: 16px;
+  margin-left: auto;
+  color: var(--main-blue);
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover .plus {
+  color: var(--white);
+}
+
+/* Пошукова форма */
+.search__form {
+  position: relative;
+}
+
+.web__search {
+  display: block;
+  position: relative;
+  width: calc(100% - 50px);
+  height: 40px;
+  padding: 0 0 0 50px;
+  border: 2px solid var(--search-color--border);
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  color: gray;
+}
+
+.icon {
+  position: absolute;
+  top: 11px;
+  left: 10px;
+  width: 22px;
+  height: 22px;
+}
+
+.icon path {
+  fill: rgba(0, 0, 0, 0.3);
+}
