@@ -49,19 +49,94 @@
             <li>
               <a href="#">УЗД<span class="plus">+</span></a>
             </li>
-            <li><a href="#">Ціни</a></li>
-            <li>
-              <a href="#">Інформація<span class="plus">+</span></a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >Пакетні пропозиції <span class="plus">+</span></a
+              >
+              <div class="dropdown-content">
+                <div class="submenu">
+                  <a href="#"
+                    >Дорослі
+                    <svg
+                      class="arrow-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                    >
+                      <path fill="#888" d="M9 18l6-6-6-6" /></svg
+                  ></a>
+                  <div class="submenu-content">
+                    <a href="#">Дорослий базовий чекап</a>
+                    <a href="#">Дорослий розширений чекап</a>
+                  </div>
+                </div>
+                <div class="submenu">
+                  <a href="#"
+                    >Жіночі
+                    <svg
+                      class="arrow-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                    >
+                      <path fill="#888" d="M9 18l6-6-6-6" /></svg
+                  ></a>
+                  <div class="submenu-content">
+                    <a href="#">Жіночий базовий чекап</a>
+                    <a href="#">Жіночий розширений чекап</a>
+                  </div>
+                </div>
+                <div class="submenu">
+                  <a href="#"
+                    >Чоловічі
+                    <svg
+                      class="arrow-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                    >
+                      <path fill="#888" d="M9 18l6-6-6-6" /></svg
+                  ></a>
+                  <div class="submenu-content">
+                    <a href="#">Чоловічий базовий чекап</a>
+                    <a href="#">Чоловічий розширений чекап</a>
+                  </div>
+                </div>
+                <div class="submenu">
+                  <a href="#"
+                    >Дитячі
+                    <svg
+                      class="arrow-icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="10"
+                      height="10"
+                      viewBox="0 0 24 24"
+                    >
+                      <path fill="#888" d="M9 18l6-6-6-6" /></svg
+                  ></a>
+                  <div class="submenu-content">
+                    <a href="#">Дитячий базовий чекап</a>
+                    <a href="#">Дитячий розширений чекап</a>
+                  </div>
+                </div>
+              </div>
             </li>
+            <li><a href="#">Ціни</a></li>
+
             <li><a href="#">Контакти</a></li>
           </ul>
         </nav>
+
         <div class="search__form">
           <form action="" method="GET">
             <input
+              id="searchInput"
               class="web__search"
               type="text"
-              placeholder="Пошук"
+              placeholder="Пошук чекапу..."
               name="name"
             />
           </form>
@@ -76,6 +151,7 @@
             ></path>
           </svg>
         </div>
+
         <a href="#" class="button-link">
           <span>Запис на прийом</span>
           <svg
@@ -98,6 +174,10 @@
           </svg>
         </a>
       </header>
+      <div class="searchMessage">
+        <div class="results" id="resultsContainer"></div>
+      </div>
     </div>
+    <script src="/assets/js/main.js"></script>
   </body>
 </html>

@@ -77,11 +77,10 @@ nav ul li a .plus {
   transition: color 0.3s ease;
 }
 
-nav ul li a:hover .plus {
+/* nav ul li a:hover .plus {
   color: var(--white);
-}
+} */
 
-/* Пошукова форма */
 .search__form {
   position: relative;
 }
@@ -109,4 +108,112 @@ nav ul li a:hover .plus {
 
 .icon path {
   fill: rgba(0, 0, 0, 0.3);
+}
+.searchMessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  right: 200px;
+  width: 300px;
+  text-align: center;
+}
+
+.hint,
+.results,
+.no-results {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown a:hover {
+  color: var(--white);
+}
+.dropdown a .plus {
+  margin-left: 5px;
+}
+.dropdown .dropdown-toggle {
+  display: inline-block;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--text-menu);
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 185px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-radius: 8px;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.dropdown-content a:hover {
+  background-color: var(--main-blue);
+  opacity: 0.5;
+}
+/* .dropdown:hover .dropdown-content {
+  display: block;
+} */
+.submenu {
+  position: relative;
+}
+
+.submenu > a {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.submenu-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #fff;
+  min-width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.submenu:hover .submenu-content {
+  display: block;
+}
+
+.submenu-content a {
+  padding: 10px 20px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+}
+
+.submenu-content a:hover {
+  background-color: #f1f1f1;
+  color: var(--text-menu);
+}
+.arrow-icon {
+  margin-left: auto;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
 }
