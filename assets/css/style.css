@@ -1,3 +1,9 @@
 @import url("variables.css");
 @import url("main.css");
 @import url("buttons.css");
+@import url("media/media_320-480.css");
+@import url("media/media_480-786.css");
+@import url("media/media_786-1024.css");
+@import url("media/media_1024-1440.css");
+@import url("media/media_1440-1960.css");
+@import url("media/media_1960-2500.css");
