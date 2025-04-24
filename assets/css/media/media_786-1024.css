@@ -1,0 +1,28 @@
+@media (min-width: 786px) and (max-width: 1024px) {
+  nav ul {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .header__wrapper {
+    gap: 10px;
+  }
+
+  .header__nav .logo,
+  .header__nav .search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .button-link {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+  }
+}

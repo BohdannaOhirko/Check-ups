@@ -3,4 +3,7 @@
     max-width: 50%;
     text-align: center;
   }
+  .logo {
+    margin-bottom: 20px;
+  }
 }

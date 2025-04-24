@@ -1,0 +1,8 @@
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .header__wrapper {
+    gap: 0px !important;
+  }
+  .button-link {
+    margin: 0;
+  }
+}
