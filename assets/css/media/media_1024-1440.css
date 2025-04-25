@@ -1,8 +1,24 @@
 @media (min-width: 1024px) and (max-width: 1440px) {
   .header__wrapper {
-    gap: 0px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 120px;
+    width: 100%;
+    margin: 20px 0px;
   }
+
+  .logo {
+    flex: 1;
+  }
+
+  .search__form {
+    flex: 1;
+    max-width: 250px;
+  }
+
   .button-link {
-    margin: 0;
+    flex: 1;
+    max-width: 250px;
   }
 }
