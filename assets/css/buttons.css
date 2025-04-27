@@ -14,14 +14,20 @@
   gap: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  position: sticky;
+  top: 20px;
 }
 
 .button-link:hover {
   background-color: var(--green-bar);
+  transform: scale(1.05);
 }
 
 .calendar-icon {
   fill: var(--white);
   width: 18px;
   height: 18px;
+}
+.bunner .button-link {
+  margin-left: 20px;
 }

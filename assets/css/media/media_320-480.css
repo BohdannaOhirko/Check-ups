@@ -32,4 +32,8 @@
     position: static;
     width: 100%;
   }
+
+  .banner h1 {
+    font-size: 36px;
+  }
 }

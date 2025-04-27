@@ -20,5 +20,14 @@
   .button-link {
     flex: 1;
     max-width: 250px;
+    margin-left: 0px;
+  }
+  .banner,
+  .banner h1,
+  .banner p {
+    padding-left: 20px;
+  }
+  .banner .button-link {
+    margin-left: 20px;
   }
 }

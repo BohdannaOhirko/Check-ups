@@ -6,4 +6,10 @@
   .logo {
     margin-bottom: 20px;
   }
+  .banner,
+  .banner h1,
+  .banner p {
+    text-align: center;
+    padding-left: 0;
+  }
 }
