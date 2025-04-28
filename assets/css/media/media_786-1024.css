@@ -25,4 +25,14 @@
     justify-content: center;
     margin: 10px auto;
   }
+  .benefits-list {
+    flex-wrap: wrap;
+  }
+  .checkup-benefits .benefit-item {
+    width: 300px;
+    min-height: 250px;
+  }
+  .center {
+    margin: 0 auto;
+  }
 }

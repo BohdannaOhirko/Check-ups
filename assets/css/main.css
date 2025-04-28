@@ -9,6 +9,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
+a {
+  text-decoration: none;
+}
 body {
   font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -259,15 +262,7 @@ nav ul li a .plus {
   transition: transform 0.3s ease;
 }
 .banner {
-  background: linear-gradient(
-    -90deg,
-    rgba(14, 118, 188, 0.3) 0%,
-    rgba(37, 170, 225, 0.3) 20%,
-    rgba(76, 197, 216, 0.3) 39%,
-    rgba(43, 182, 115, 0.3) 60%,
-    rgba(57, 181, 74, 0.3) 78%,
-    rgba(0, 166, 81, 0.3) 100%
-  );
+  background: var(--background-banner);
   padding: 50px 20px;
   text-align: left;
   position: relative;
@@ -292,6 +287,10 @@ nav ul li a .plus {
   text-align: left;
   padding-left: 20px;
 }
+.bunner .button-link {
+  margin-left: 20px;
+}
+
 .checkup-benefits h2 {
   font-family: "Roboto";
   font-size: 36px;
@@ -302,7 +301,8 @@ nav ul li a .plus {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  flex-wrap: nowrap;
+  gap: 20px;
 }
 
 .checkup-benefits .benefit-item {
@@ -310,6 +310,10 @@ nav ul li a .plus {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  /* background-color: var(--light-blue); */
+  min-height: 300px;
 }
 
 .checkup-benefits .icon-benefits {
@@ -329,7 +333,59 @@ nav ul li a .plus {
 }
 
 .checkup-benefits .benefits-list p {
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
-  line-height: 1.5;
+  line-height: 2;
+}
+.checkup-section {
+  padding: 40px 20px;
+}
+
+.checkup-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.checkup-item {
+  background-color: var(--light-blue);
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.checkup-item:hover {
+  transform: translateY(-2px);
+}
+
+.checkup-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.checkup-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--gray-text);
+}
+
+.checkup-item .price {
+  font-size: 18px;
+  color: var(--green-bar);
+  margin-bottom: 20px;
+}
+
+.checkup-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }

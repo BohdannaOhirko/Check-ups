@@ -18,6 +18,23 @@
     #39b54a 78%,
     #00a651 100%
   );
+
+  /* colors of buttons */
+  --accent-orange: #fe7f03;
+  --background-outline: #d5ebfd;
+  --outline-green: #88cda5;
+
+  /* colors of banner */
+  --background-banner: linear-gradient(
+    -90deg,
+    rgba(14, 118, 188, 0.3) 0%,
+    rgba(37, 170, 225, 0.3) 20%,
+    rgba(76, 197, 216, 0.3) 39%,
+    rgba(43, 182, 115, 0.3) 60%,
+    rgba(57, 181, 74, 0.3) 78%,
+    rgba(0, 166, 81, 0.3) 100%
+  );
+
   /* main colors of logo
   --blue-1: #0f75bc;
   --blue-2: #25aae1;
@@ -40,5 +57,4 @@
   /* --form-number: #558aa0;
   --accent-blue: #0e76bc;
   --accent-green-hover: #00a651;*/
-  --accent-orange: #fe7f03;
 }

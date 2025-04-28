@@ -1,19 +1,24 @@
-.button-link {
-  background-color: var(--accent-orange);
-  border-radius: 5px;
-  border: none;
-  color: var(--white);
+.button-link,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   line-height: 1.2;
-  padding: 12px 18px;
-  margin-left: 15px;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  min-width: 160px;
+}
+
+.button-link {
+  background-color: var(--accent-orange);
+  color: var(--white);
+  border: none;
   position: sticky;
   top: 20px;
 }
@@ -23,11 +28,22 @@
   transform: scale(1.05);
 }
 
+.btn-outline {
+  background: var(--background-outline);
+  color: var(--gray-text);
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline:hover {
+  background: var(--outline-green);
+  color: var(--white);
+  transform: scale(1.05);
+}
+
 .calendar-icon {
   fill: var(--white);
   width: 18px;
   height: 18px;
-}
-.bunner .button-link {
-  margin-left: 20px;
 }
