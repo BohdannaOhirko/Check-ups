@@ -39,4 +39,67 @@
   .benefits-list {
     flex-wrap: wrap;
   }
+  .checkup-details h2 {
+    font-size: 1.4rem;
+  }
+
+  #checkup-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .checkup {
+    padding: 1rem;
+  }
+
+  .checkup-details img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  nav[aria-label="Перемикач пакета"] ul {
+    flex-direction: column;
+  }
+
+  .package-details h4 {
+    font-size: 1.1rem;
+  }
+
+  .package-details li {
+    font-size: 0.9rem;
+  }
+
+  .checkup-details h2 {
+    font-size: 1.7rem;
+  }
+
+  #checkup-container {
+    padding: 1.5rem;
+  }
+
+  .checkup-details img {
+    width: 70%;
+  }
+
+  .checkup h3 {
+    font-size: 1.3rem;
+  }
+
+  .checkup-details h2 {
+    font-size: 1.8rem;
+  }
+
+  #checkup-container {
+    padding: 2rem;
+    max-width: 900px;
+  }
+
+  .checkup-details img {
+    width: 80%;
+    max-width: 600px;
+  }
+
+  .checkup h3 {
+    font-size: 1.4rem;
+  }
 }

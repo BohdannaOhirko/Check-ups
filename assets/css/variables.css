@@ -35,6 +35,8 @@
     rgba(0, 166, 81, 0.3) 100%
   );
 
+  /* colors of checkup */
+  --background-checkup: #f9fbfe;
   /* main colors of logo
   --blue-1: #0f75bc;
   --blue-2: #25aae1;

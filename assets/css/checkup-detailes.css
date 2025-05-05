@@ -1,0 +1,124 @@
+.checkup-details h2 {
+  text-align: center;
+  font-weight: 600;
+  color: var(--gray-text);
+  padding-top: 30px;
+  font-size: 1.8rem;
+}
+
+#checkup-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.checkup {
+  border: none;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: var(--background-checkup);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checkup:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+.checkup-details img {
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  margin: 0 auto 2rem auto;
+  border-radius: 10px;
+}
+.checkup h3 {
+  margin-bottom: 0.5rem;
+  color: var(--text-menu);
+  font-size: 1.4rem;
+}
+
+.checkup header p {
+  margin-bottom: 1rem;
+  color: var(--gray-text);
+  font-size: 1rem;
+}
+
+nav[aria-label="Перемикач пакета"] ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+nav[aria-label="Перемикач пакета"] li button {
+  padding: 0.7rem 1.5rem;
+  background-color: var(--light-blue);
+  color: var(--dark-text);
+  border: none;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+}
+
+nav[aria-label="Перемикач пакета"] li button:hover {
+  background-color: var(--green-bar);
+  transform: translateY(-2px);
+  color: var(--white);
+}
+
+nav[aria-label="Перемикач пакета"] li button.active {
+  background-color: var(--green-bar);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+nav[aria-label="Перемикач пакета"] li button:focus {
+  outline: none;
+  box-shadow: 0 0 0 1px rgba(0, 123, 255, 0.4);
+}
+
+.package-details {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.package-details h4 {
+  margin-top: 0;
+  color: var(--green-bar);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.package-details ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.package-details li {
+  margin-bottom: 0.4rem;
+  color: var(--dark-text);
+  font-size: 1rem;
+}
+
+.package-details p {
+  font-weight: bold;
+  color: var(--dark-text);
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}

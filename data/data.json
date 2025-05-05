@@ -1,8 +1,10 @@
 {
     "checkups": [
       {
+        "id": "adult-checkup",
         "name": "Дорослий",
         "description": "Комплексне медичне обстеження для дорослих.",
+        "image": "/assets/images/temporary.jpg",
         "packages": {
           "basic": {
             "name": "Базовий",
@@ -33,8 +35,10 @@
         }
       },
       {
+        "id": "male-checkup",
         "name": "Чоловічий",
         "description": "Комплексне медичне обстеження для чоловіків.",
+        "image": "/assets/images/temporary.jpg",
         "packages": {
           "basic": {
             "name": "Базовий",
@@ -64,8 +68,10 @@
         }
       },
       {
+        "id": "female-checkup",
         "name": "Жіночий",
         "description": "Комплексне медичне обстеження для жінок.",
+        "image": "/assets/images/temporary.jpg",
         "packages": {
           "basic": {
             "name": "Базовий",
@@ -96,8 +102,10 @@
         }
       },
       {
+        "id": "child-checkup",
         "name": "Дитячий",
         "description": "Комплексне медичне обстеження для дітей.",
+        "image": "/assets/images/temporary.jpg",
         "packages": {
           "basic": {
             "name": "Базовий",
