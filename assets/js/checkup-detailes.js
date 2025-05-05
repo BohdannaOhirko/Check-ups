@@ -24,17 +24,23 @@ export function initCheckupPage() {
               <div class="package-details"></div>
             </div>
           `;
-
         const detailsDiv = container.querySelector(".package-details");
         const showPackage = (type) => {
           const pkg = checkup.packages[type];
           detailsDiv.innerHTML = `
-              <h4>${pkg.name} пакет</h4>
-              <ul>
-                ${pkg.services.map((s) => `<li>${s}</li>`).join("")}
-              </ul>
-              <p>Базова вартість: від ${pkg.base_price} грн</p>
-            `;
+                <h4>${pkg.name} пакет</h4>
+                <ul>
+                  ${pkg.services
+                    .map(
+                      (s) =>
+                        `<li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i>${s}</li>`
+                    )
+                    .join("")}
+                </ul>
+                <p>Базова вартість: <span class="price-color">від ${
+                  pkg.base_price
+                } грн</span></p>
+              `;
         };
 
         showPackage("basic");

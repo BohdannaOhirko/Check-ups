@@ -30,4 +30,29 @@
   .banner .button-link {
     margin-left: 20px;
   }
+  .checkup {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+  }
+  .checkup-details img {
+    width: 100%;
+    margin: 0;
+  }
+  .checkup header {
+    text-align: center;
+  }
+  nav[aria-label="Перемикач пакета"] ul {
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+    top: 35px;
+    left: 45%;
+  }
+  .package-details {
+    margin-top: 5rem;
+    background: none;
+    box-shadow: none;
+  }
 }

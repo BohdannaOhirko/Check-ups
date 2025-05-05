@@ -12,6 +12,9 @@ body {
 a {
   text-decoration: none;
 }
+ul {
+  list-style: none;
+}
 body {
   font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;

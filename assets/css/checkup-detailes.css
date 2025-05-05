@@ -106,19 +106,23 @@ nav[aria-label="Перемикач пакета"] li button:focus {
 }
 
 .package-details ul {
-  padding-left: 1.5rem;
+  padding-left: 10px;
   margin: 0.5rem 0;
 }
 
 .package-details li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   color: var(--dark-text);
   font-size: 1rem;
 }
 
 .package-details p {
-  font-weight: bold;
+  font-weight: 500;
   color: var(--dark-text);
   margin-top: 1rem;
   font-size: 1.1rem;
+}
+.price-color {
+  font-weight: bold;
+  color: var(--green-bar);
 }
