@@ -1,1 +1,5 @@
-
+@media (min-width: 1440px) and (max-width: 1960px) {
+  .checkup-list {
+    gap: 150px;
+  }
+}

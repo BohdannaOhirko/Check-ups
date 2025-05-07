@@ -30,7 +30,22 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
-
+.banner-container {
+  background: linear-gradient(
+      rgba(240, 248, 255, 0.3),
+      rgba(240, 248, 255, 0.3)
+    ),
+    url("/assets/images/банер.jpg");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  height: 50.67vh;
+  display: block;
+  padding: 20px;
+}
 .top-bar {
   height: 40px;
   background-image: linear-gradient(to right, #4caf50, #2196f3);
@@ -266,7 +281,6 @@ nav ul li a .plus {
 }
 .banner {
   background: var(--background-banner);
-  padding: 50px 20px;
   text-align: left;
   position: relative;
   z-index: 1;

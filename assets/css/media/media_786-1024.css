@@ -19,12 +19,13 @@
     gap: 10px;
   }
 
-  .button-link {
+  .header__wrapper .button-link {
     width: 250px;
     display: flex;
     justify-content: center;
     margin: 10px auto;
   }
+
   .benefits-list {
     flex-wrap: wrap;
   }
@@ -34,5 +35,8 @@
   }
   .center {
     margin: 0 auto;
+  }
+  .banner .button-link {
+    margin-left: 20px;
   }
 }

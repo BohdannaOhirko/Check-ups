@@ -10,3 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
     initSearchModule();
   }
 });
+
+fetch("/data/data.json")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error("Помилка при завантаженні JSON:", error);
+  });

@@ -37,11 +37,18 @@
     position: static;
     width: 100%;
   }
-
+  .banner {
+    text-align: center;
+  }
   .banner h1 {
     font-size: 36px;
+    text-align: center;
+    margin-top: 40px;
   }
-
+  .banner p {
+    font-size: 12px;
+    text-align: center;
+  }
   .benefits-list {
     flex-wrap: wrap;
   }
@@ -58,7 +65,9 @@
   .checkup {
     padding: 1rem;
   }
-
+  .checkup-benefits .benefit-item {
+    padding-bottom: 0px;
+  }
   .checkup-details img {
     width: 100%;
     max-width: 300px;
