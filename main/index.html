@@ -104,8 +104,8 @@
                 >
                 <div class="dropdown-content">
                   <div class="submenu">
-                    <a href="#"
-                      >Дорослі
+                    <a href="#adult-checkup/packages/basic">
+                      Дорослі
                       <svg
                         class="arrow-icon"
                         xmlns="http://www.w3.org/2000/svg"
@@ -113,18 +113,21 @@
                         height="10"
                         viewBox="0 0 24 24"
                       >
-                        <path fill="#888" d="M9 18l6-6-6-6" /></svg
-                    ></a>
+                        <path fill="#888" d="M9 18l6-6-6-6" />
+                      </svg>
+                    </a>
                     <div class="submenu-content">
                       <a href="#adult-checkup/packages/basic"
                         >Дорослий базовий чекап</a
                       >
-                      <a href="#">Дорослий розширений чекап</a>
+                      <a href="#adult-checkup/packages/extended"
+                        >Дорослий розширений чекап</a
+                      >
                     </div>
                   </div>
                   <div class="submenu">
-                    <a href="#"
-                      >Жіночі
+                    <a href="#female-checkup/packages/basic">
+                      Жіночі
                       <svg
                         class="arrow-icon"
                         xmlns="http://www.w3.org/2000/svg"
@@ -132,16 +135,21 @@
                         height="10"
                         viewBox="0 0 24 24"
                       >
-                        <path fill="#888" d="M9 18l6-6-6-6" /></svg
-                    ></a>
+                        <path fill="#888" d="M9 18l6-6-6-6" />
+                      </svg>
+                    </a>
                     <div class="submenu-content">
-                      <a href="#">Жіночий базовий чекап</a>
-                      <a href="#">Жіночий розширений чекап</a>
+                      <a href="#female-checkup/packages/basic"
+                        >Жіночий базовий чекап</a
+                      >
+                      <a href="#female-checkup/packages/extended"
+                        >Жіночий розширений чекап</a
+                      >
                     </div>
                   </div>
                   <div class="submenu">
-                    <a href="#"
-                      >Чоловічі
+                    <a href="#male-checkup/packages/basic">
+                      Чоловічі
                       <svg
                         class="arrow-icon"
                         xmlns="http://www.w3.org/2000/svg"
@@ -149,16 +157,21 @@
                         height="10"
                         viewBox="0 0 24 24"
                       >
-                        <path fill="#888" d="M9 18l6-6-6-6" /></svg
-                    ></a>
+                        <path fill="#888" d="M9 18l6-6-6-6" />
+                      </svg>
+                    </a>
                     <div class="submenu-content">
-                      <a href="#">Чоловічий базовий чекап</a>
-                      <a href="#">Чоловічий розширений чекап</a>
+                      <a href="#male-checkup/packages/basic"
+                        >Чоловічий базовий чекап</a
+                      >
+                      <a href="#male-checkup/packages/extended"
+                        >Чоловічий розширений чекап</a
+                      >
                     </div>
                   </div>
                   <div class="submenu">
-                    <a href="#"
-                      >Дитячі
+                    <a href="#child-checkup/packages/basic">
+                      Дитячі
                       <svg
                         class="arrow-icon"
                         xmlns="http://www.w3.org/2000/svg"
@@ -166,11 +179,16 @@
                         height="10"
                         viewBox="0 0 24 24"
                       >
-                        <path fill="#888" d="M9 18l6-6-6-6" /></svg
-                    ></a>
+                        <path fill="#888" d="M9 18l6-6-6-6" />
+                      </svg>
+                    </a>
                     <div class="submenu-content">
-                      <a href="#">Дитячий базовий чекап</a>
-                      <a href="#">Дитячий розширений чекап</a>
+                      <a href="#child-checkup/packages/basic"
+                        >Дитячий базовий чекап</a
+                      >
+                      <a href="#child-checkup/packages/extended"
+                        >Дитячий розширений чекап</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -190,7 +208,7 @@
           Комплексне обстеження для раннього виявлення захворювань і контролю
           здоров'я.
         </p>
-        <a href="#" class="button-link">
+        <a href="#" class="button-link" id="openFormBtn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -333,7 +351,7 @@
         </div>
       </div>
     </section>
-
+    <div id="checkup-container"></div>
     <script type="module" src="/assets/js/main.js"></script>
   </body>
 </html>

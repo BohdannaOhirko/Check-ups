@@ -1,0 +1,95 @@
+form {
+  padding: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: "Segoe UI", sans-serif;
+}
+fieldset {
+  border: none;
+}
+#formTitle {
+  text-align: center;
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--dark-text);
+}
+
+legend {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--main-blue);
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--gray-text);
+  font-size: 1.1rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem 0.5rem;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: transparent;
+  font-size: 1.125rem;
+  color: var(--dark-text);
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+input:focus,
+select:focus {
+  border-bottom-color: var(--main-blue);
+  outline: none;
+}
+
+input:invalid:focus,
+select:invalid:focus {
+  border-bottom-color: #dc3545;
+}
+
+input:required:invalid {
+  background-color: #f0f9f4;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  margin-left: 10px;
+  font-size: 1.1rem;
+  color: var(--gray-text);
+}
+
+.checkbox-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 12px;
+  accent-color: var(--main-blue);
+  cursor: pointer;
+}
+
+.checkbox-container label {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--green-bar);
+}
+
+.success-message {
+  margin-top: 1rem;
+  color: var(--green-bar);
+  font-weight: bold;
+  display: none;
+}
