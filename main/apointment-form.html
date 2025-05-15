@@ -1,58 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Appointment-form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Запис на прийом</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body>
-    <main>
-      <form id="checkupForm" aria-labelledby="formTitle">
-        <fieldset>
-          <legend id="formTitle">Записатись на прийом</legend>
+    <div id="formModal" class="modal-overlay">
+      <div class="modal">
+        <button id="closeFormModal" class="modal-close">&times;</button>
+        <form id="checkupForm" aria-labelledby="formTitle">
+          <fieldset>
+            <legend id="formTitle">Записатись на прийом</legend>
 
-          <label for="name">Ім’я*:</label>
-          <input type="text" id="name" name="name" required />
+            <label for="name">Ім’я*:</label>
+            <input type="text" id="name" name="name" required />
 
-          <label for="phone">Телефон*:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="+380..."
-            required
-          />
+            <label for="phone">Телефон*:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+380..."
+              required
+            />
 
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-        </fieldset>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </fieldset>
 
-        <fieldset>
-          <legend>Деталі візиту</legend>
+          <fieldset>
+            <legend>Деталі візиту</legend>
 
-          <label for="datetime">Бажана дата візиту*:</label>
-          <input type="datetime-local" id="datetime" name="datetime" required />
+            <label for="datetime">Бажана дата візиту*:</label>
+            <input
+              type="datetime-local"
+              id="datetime"
+              name="datetime"
+              required
+            />
 
-          <label for="checkup">Оберіть чекап*:</label>
-          <select id="checkup" name="checkup" required>
-            <option value="general">Дорослий чекап</option>
-            <option value="women">Жіночий чекап</option>
-            <option value="men">Чоловічий чекап</option>
-            <option value="child">Дитячий чекап</option>
-          </select>
-        </fieldset>
+            <label for="checkup">Оберіть чекап*:</label>
+            <select id="checkup" name="checkup" required>
+              <option value="general">Дорослий чекап</option>
+              <option value="women">Жіночий чекап</option>
+              <option value="men">Чоловічий чекап</option>
+              <option value="child">Дитячий чекап</option>
+            </select>
+          </fieldset>
 
-        <div class="checkbox-container">
-          <input type="checkbox" id="consent" name="consent" required />
-          <label for="consent">Погоджуюсь на обробку персональних даних*</label>
-        </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="consent" name="consent" required />
+            <label for="consent"
+              >Погоджуюсь на обробку персональних даних*</label
+            >
+          </div>
 
-        <button type="submit" class="checkup-submit">Записатись</button>
-        <div class="success-message" id="successMessage">
-          Форма успішно відправлена. Дякуємо!
-        </div>
-      </form>
-    </main>
+          <button type="submit" class="checkup-submit">Записатись</button>
+
+          <div
+            class="success-message"
+            id="successMessage"
+            style="display: none"
+          >
+            Форма успішно відправлена. Дякуємо!
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="module" src="/assets/js/main.js"></script>
   </body>
 </html>

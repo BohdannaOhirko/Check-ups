@@ -7,6 +7,9 @@ form {
 fieldset {
   border: none;
 }
+fieldset:first-child {
+  margin-bottom: 20px;
+}
 #formTitle {
   text-align: center;
   font-size: 1.75rem;
@@ -83,10 +86,45 @@ input:required:invalid {
   cursor: pointer;
 }
 
-button:hover {
+.checkup-submit:hover {
   background-color: var(--green-bar);
 }
+.modal-overlay {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
 
+.modal {
+  background: white;
+  padding: 2rem;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #999;
+}
+
+.modal-close:hover {
+  color: #000;
+  background-color: #999;
+}
 .success-message {
   margin-top: 1rem;
   color: var(--green-bar);
