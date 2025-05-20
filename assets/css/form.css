@@ -1,15 +1,15 @@
-form {
+#checkupForm {
   padding: 2rem;
   max-width: 600px;
   margin: 0 auto;
   font-family: "Segoe UI", sans-serif;
 }
+
 fieldset {
   border: none;
-}
-fieldset:first-child {
   margin-bottom: 20px;
 }
+
 #formTitle {
   text-align: center;
   font-size: 1.75rem;
@@ -77,7 +77,7 @@ input:required:invalid {
 .checkbox-container input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  margin-top: 12px;
+  margin-top: 0;
   accent-color: var(--main-blue);
   cursor: pointer;
 }
@@ -86,28 +86,46 @@ input:required:invalid {
   cursor: pointer;
 }
 
+.checkup-submit {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.25rem;
+  background-color: #0e76bc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
 .checkup-submit:hover {
   background-color: var(--green-bar);
 }
+
 .modal-overlay {
-  /* position: fixed; */
+  display: none;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-.modal {
+.modal-overlay.show {
+  display: flex;
+}
+
+#modal {
   background: white;
   padding: 2rem;
   position: relative;
   max-width: 500px;
   width: 100%;
   border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .modal-close {
@@ -119,15 +137,18 @@ input:required:invalid {
   font-size: 2rem;
   cursor: pointer;
   color: #999;
+  transition: color 0.3s, background-color 0.3s;
 }
 
 .modal-close:hover {
   color: #000;
-  background-color: #999;
+  background-color: #ddd;
+  border-radius: 50%;
 }
+
 .success-message {
   margin-top: 1rem;
-  color: var(--green-bar);
+  color: #2bb673;
   font-weight: bold;
   display: none;
 }

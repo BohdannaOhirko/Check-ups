@@ -100,4 +100,7 @@
   legend {
     font-size: 1.4rem;
   }
+  #checkupForm {
+    padding: 2rem 0 0 0;
+  }
 }
