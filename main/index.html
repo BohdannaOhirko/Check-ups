@@ -201,7 +201,7 @@
         </div>
       </header>
     </div>
-    <section class="banner">
+    <section class="banner" id="initialBanner">
       <div class="container banner-container">
         <h1>Check-up</h1>
         <p>
@@ -230,6 +230,11 @@
         >
       </div>
     </section>
+    <section
+      id="resultsContainer"
+      class="search-results-section"
+      style="display: none"
+    ></section>
     <section class="checkup-benefits">
       <div class="container">
         <h2>Переваги чекапу</h2>
@@ -353,9 +358,7 @@
     </section>
     <div id="checkup-container"></div>
     <div id="formModal" class="modal-overlay">
-      <div id="modal">
-        <button id="closeFormModal" class="modal-close">&times;</button>
-      </div>
+      <div id="modal"></div>
     </div>
     <script type="module" src="/assets/js/main.js"></script>
   </body>

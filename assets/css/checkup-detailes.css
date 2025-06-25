@@ -6,7 +6,8 @@
   font-size: 1.8rem;
 }
 
-#checkup-container {
+#checkup-container,
+#resultsContainer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -125,4 +126,17 @@ nav[aria-label="Перемикач пакета"] li button:focus {
 .price-color {
   font-weight: bold;
   color: var(--green-bar);
+}
+.no-results-found {
+  text-align: center;
+  color: #888;
+  font-size: 1.2em;
+  padding: 20px;
+  border: 1px dashed #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.detailed-checkup-display {
+  display: block;
+  max-height: 20vh;
 }
