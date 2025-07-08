@@ -91,11 +91,11 @@ function displayResults(filtered, container) {
                 </div>`
       )
       .join("");
-    container.classList.add("banner");
+
     container.classList.remove("detailed-checkup-display");
   } else {
-    container.innerHTML = `<div class="no-results">Нічого не знайдено</div>`;
-    container.classList.add("banner");
+    container.innerHTML = `<div>Нічого не знайдено</div>`;
+
     container.classList.remove("detailed-checkup-display");
   }
   toggleContentVisibility(true);

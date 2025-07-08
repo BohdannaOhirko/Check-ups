@@ -15,12 +15,26 @@
   min-width: 160px;
 }
 
-.button-link {
+.button-link,
+#nextBtn,
+#prevBtn {
   background-color: var(--accent-orange);
   color: var(--white);
   border: none;
   position: sticky;
   top: 20px;
+}
+#nextBtn,
+#prevBtn {
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.arrow-btn {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 4px;
+  display: inline-block;
 }
 .banner .button-link {
   margin-left: 20px;

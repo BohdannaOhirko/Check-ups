@@ -1,3 +1,5 @@
+import { nextStep, prevStep } from "./checkup-renderer.js"; // обов'язково!
+
 const modal = document.getElementById("formModal");
 const openModalBtns = document.querySelectorAll(".openFormBtn");
 const modalContent = document.getElementById("modal");
@@ -13,7 +15,14 @@ export function loadForm(modal, modalContent) {
     .then((data) => {
       modalContent.innerHTML = data;
 
+      // 👉 Знаходимо кнопки після вставки форми
+      const nextBtn = modalContent.querySelector("#nextBtn");
+      const prevBtn = modalContent.querySelector("#prevBtn");
       const form = modalContent.querySelector("#checkupForm");
+
+      if (nextBtn) nextBtn.addEventListener("click", nextStep);
+      if (prevBtn) prevBtn.addEventListener("click", prevStep);
+
       if (form) {
         form.addEventListener("submit", (event) => {
           event.preventDefault();
@@ -26,8 +35,15 @@ export function loadForm(modal, modalContent) {
           console.log("Checkup:", formData.get("checkup"));
           console.log("Consent:", formData.get("consent"));
 
-          modal.classList.remove("show");
-          modalContent.innerHTML = "";
+          // Показуємо повідомлення про успіх
+          form
+            .querySelectorAll(".form-step")
+            .forEach((el) => el.classList.add("hide"));
+          const successMsg = form.querySelector("#successMessage");
+          if (successMsg) {
+            successMsg.classList.remove("hide");
+            successMsg.classList.add("show");
+          }
         });
       }
 
@@ -44,17 +60,3 @@ export function loadForm(modal, modalContent) {
       modalContent.innerHTML = "<p>Вибачте, не вдалося завантажити форму.</p>";
     });
 }
-
-openModalBtns.forEach((button) => {
-  button.addEventListener("click", () => {
-    modal.classList.add("show");
-    loadForm(modal, modalContent);
-  });
-});
-
-window.addEventListener("click", (event) => {
-  if (event.target === modal) {
-    modal.classList.remove("show");
-    modalContent.innerHTML = "";
-  }
-});
