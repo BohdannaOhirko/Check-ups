@@ -1,4 +1,4 @@
-import { nextStep, prevStep } from "./checkup-renderer.js"; // обов'язково!
+import { nextStep, prevStep } from "./form-renderer.js";
 
 const modal = document.getElementById("formModal");
 const openModalBtns = document.querySelectorAll(".openFormBtn");
@@ -15,7 +15,6 @@ export function loadForm(modal, modalContent) {
     .then((data) => {
       modalContent.innerHTML = data;
 
-      // 👉 Знаходимо кнопки після вставки форми
       const nextBtn = modalContent.querySelector("#nextBtn");
       const prevBtn = modalContent.querySelector("#prevBtn");
       const form = modalContent.querySelector("#checkupForm");
@@ -35,7 +34,6 @@ export function loadForm(modal, modalContent) {
           console.log("Checkup:", formData.get("checkup"));
           console.log("Consent:", formData.get("consent"));
 
-          // Показуємо повідомлення про успіх
           form
             .querySelectorAll(".form-step")
             .forEach((el) => el.classList.add("hide"));

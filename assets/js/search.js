@@ -1,3 +1,5 @@
+import { replaceBannerWithCheckup } from "./checkup-renderer.js";
+
 let allCheckupsData = [];
 let initialBannerElement;
 
@@ -20,85 +22,100 @@ function displayInitialContent() {
 }
 
 function filterCheckups(searchValue) {
-  return allCheckupsData.filter((item) =>
-    item.name.toLowerCase().includes(searchValue)
-  );
-}
+  const normalizedSearch = searchValue.trim().toLowerCase();
 
-function renderDetailedCheckup(checkup, container) {
-  container.innerHTML = `
-        <div class="checkup">
-            <header>
-                <img src="${checkup.image}" alt="${checkup.name} чекап" class="checkup-img" />
-                <h3>${checkup.name} чекап</h3>
-                <p>${checkup.description}</p>
-            </header>
-            <nav aria-label="Перемикач пакета">
-                <ul>
-                    <li><button class="switch-btn" data-type="basic">Базовий</button></li>
-                    <li><button class="switch-btn" data-type="extended">Розширений</button></li>
-                </ul>
-            </nav>
-            <div class="package-details"></div>
-        </div>
-    `;
+  return allCheckupsData.filter((item) => {
+    const name = item.name?.toLowerCase() || "";
+    const description = item.description?.toLowerCase() || "";
+    const keywords = (item.keywords || []).join(" ").toLowerCase();
 
-  const detailsDiv = container.querySelector(".package-details");
-  const showPackage = (type) => {
-    const pkg = checkup.packages[type];
-    if (!pkg) {
-      detailsDiv.innerHTML = `<p>Дані для пакету "${type}" відсутні.</p>`;
-      return;
-    }
-    detailsDiv.innerHTML = `
-            <h4>${pkg.name} пакет</h4>
-            <ul>
-                ${pkg.services
-                  .map(
-                    (s) =>
-                      `<li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i>${s}</li>`
-                  )
-                  .join("")}
-            </ul>
-            <p>Базова вартість: <span class="price-color">від ${
-              pkg.base_price
-            } грн</span></p>
-        `;
-  };
-
-  showPackage("basic");
-
-  const buttons = container.querySelectorAll(".switch-btn");
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      showPackage(btn.dataset.type);
-    });
+    return (
+      name.includes(normalizedSearch) ||
+      description.includes(normalizedSearch) ||
+      keywords.includes(normalizedSearch)
+    );
   });
-
-  container.classList.remove("banner");
-  container.classList.add("detailed-checkup-display");
 }
+
+// function renderDetailedCheckup(checkup, container) {
+//   container.innerHTML = `
+//         <div class="checkup">
+//             <header>
+//                 <img src="${checkup.image}" alt="${checkup.name} чекап" class="checkup-img" />
+//                 <h3>${checkup.name} чекап</h3>
+//                 <p>${checkup.description}</p>
+//             </header>
+//             <nav aria-label="Перемикач пакета">
+//                 <ul>
+//                     <li><button class="switch-btn" data-type="basic">Базовий</button></li>
+//                     <li><button class="switch-btn" data-type="extended">Розширений</button></li>
+//                 </ul>
+//             </nav>
+//             <div class="package-details"></div>
+//         </div>
+//     `;
+
+//   const detailsDiv = container.querySelector(".package-details");
+//   const showPackage = (type) => {
+//     const pkg = checkup.packages[type];
+//     if (!pkg) {
+//       detailsDiv.innerHTML = `<p>Дані для пакету "${type}" відсутні.</p>`;
+//       return;
+//     }
+//     detailsDiv.innerHTML = `
+//             <h4>${pkg.name} пакет</h4>
+//             <ul>
+//                 ${pkg.services
+//                   .map(
+//                     (s) =>
+//                       `<li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i>${s}</li>`
+//                   )
+//                   .join("")}
+//             </ul>
+//             <p>Базова вартість: <span class="price-color">від ${
+//               pkg.base_price
+//             } грн</span></p>
+//         `;
+//   };
+
+//   showPackage("basic");
+
+//   const buttons = container.querySelectorAll(".switch-btn");
+//   buttons.forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//       showPackage(btn.dataset.type);
+//     });
+//   });
+
+//   container.classList.remove("banner");
+//   container.classList.add("detailed-checkup-display");
+// }
 
 function displayResults(filtered, container) {
+  const banner = document.getElementById("initialBanner");
+
   if (filtered.length === 1) {
-    renderDetailedCheckup(filtered[0], container);
+    container.style.display = "none";
+    replaceBannerWithCheckup(filtered[0]);
+
+    if (banner) banner.style.display = "none";
   } else if (filtered.length > 1) {
     container.innerHTML = filtered
       .map(
         (item) => `
-                <div class="item">
-                    <span class="item__name">${item.name}</span>
-                </div>`
+          <div class="item">
+            <span class="item__name">${item.name}</span>
+          </div>`
       )
       .join("");
 
-    container.classList.remove("detailed-checkup-display");
+    container.style.display = "block";
+    if (banner) banner.style.display = "block";
   } else {
-    container.innerHTML = `<div>Нічого не знайдено</div>`;
-
-    container.classList.remove("detailed-checkup-display");
+    container.innerHTML = `<div class="no-results-found">Нічого не знайдено</div>`;
+    container.style.display = "block";
+    if (banner) banner.style.display = "block";
   }
-  toggleContentVisibility(true);
 }
 
 function performSearch() {
@@ -195,101 +212,3 @@ export function initSearchModule() {
       }
     });
 }
-
-// const checkups = [
-//   { name: "Дорослий чекап", category: "adult" },
-//   { name: "Дорослий базовий чекап", category: "adult" },
-//   { name: "Дорослий розширений чекап", category: "adult" },
-//   { name: "Жіночий чекап", category: "women" },
-//   { name: "Жіночий базовий чекап", category: "women" },
-//   { name: "Жіночий розширений чекап", category: "women" },
-//   { name: "Чоловічий чекап", category: "men" },
-//   { name: "Чоловічий базовий чекап", category: "men" },
-//   { name: "Чоловічий розширений чекап", category: "men" },
-//   { name: "Дитячий чекап", category: "children" },
-//   { name: "Дитячий базовий", category: "children" },
-//   { name: "Дитячий розширений", category: "children" },
-// ];
-
-// function getSearchValue() {
-//   return document.getElementById("searchInput").value.trim().toLowerCase();
-// }
-
-// function displayHint(container) {
-//   container.innerHTML = `<div class="hint">Введіть текст для пошуку...</div>`;
-// }
-
-// function filterCheckups(searchValue) {
-//   return checkups.filter((item) =>
-//     item.name.toLowerCase().includes(searchValue)
-//   );
-// }
-
-// function displayResults(filtered, container) {
-//   container.innerHTML = filtered.length
-//     ? filtered
-//         .map(
-//           (item) => `
-//           <div class="item">
-//             <span class="item__name">${item.name}</span>
-//           </div>`
-//         )
-//         .join("")
-//     : `<div class="no-results">Нічого не знайдено</div>`;
-// }
-
-// function performSearch() {
-//   const searchValue = getSearchValue();
-//   const resultsContainer = document.getElementById("resultsContainer");
-
-//   if (searchValue === "") {
-//     displayHint(resultsContainer);
-//     return;
-//   }
-
-//   const filtered = filterCheckups(searchValue);
-//   displayResults(filtered, resultsContainer);
-// }
-
-// function handleEnterKey(e) {
-//   if (e.key === "Enter") {
-//     e.preventDefault();
-//     performSearch();
-//   }
-// }
-
-// function handleInput() {
-//   if (getSearchValue() === "") performSearch();
-// }
-
-// function toggleDropdown(e) {
-//   e.preventDefault();
-//   const dropdown = e.target.closest(".dropdown");
-//   const dropdownContent = dropdown.querySelector(".dropdown-content");
-//   const isOpen = dropdown.classList.toggle("open");
-//   e.target.textContent = isOpen ? "−" : "+";
-//   dropdownContent.style.display =
-//     dropdownContent.style.display === "block" ? "none" : "block";
-// }
-
-// function closeDropdowns(e) {
-//   if (!e.target.closest(".dropdown")) {
-//     document.querySelectorAll(".dropdown-content").forEach((menu) => {
-//       menu.style.display = "none";
-//     });
-//   }
-// }
-
-// export function initSearchModule() {
-//   document
-//     .getElementById("searchInput")
-//     .addEventListener("keydown", handleEnterKey);
-//   document.getElementById("searchInput").addEventListener("input", handleInput);
-
-//   const plusIcons = document.querySelectorAll(".plus");
-//   plusIcons.forEach((plus) => {
-//     plus.addEventListener("click", toggleDropdown);
-//   });
-
-//   document.addEventListener("click", closeDropdowns);
-// }
