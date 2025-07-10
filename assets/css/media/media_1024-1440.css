@@ -22,6 +22,9 @@
     max-width: 250px;
     margin-left: 0px;
   }
+  .checkup-buttons .button-link {
+    max-width: 160px;
+  }
   .banner-container {
     display: flex;
     flex-direction: column;

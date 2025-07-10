@@ -1,5 +1,5 @@
 #checkupForm {
-  padding: 2rem;
+  padding: 2rem 1rem 1rem;
   max-width: 600px;
   margin: 0 auto;
   font-family: "Segoe UI", sans-serif;
@@ -77,7 +77,7 @@ input:required:invalid {
 .checkbox-container input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  margin-top: 0;
+  margin-top: 12px;
   accent-color: var(--main-blue);
   cursor: pointer;
 }
@@ -120,7 +120,7 @@ input:required:invalid {
 
 #modal {
   background: white;
-  padding: 2rem;
+  padding: 0.5rem;
   position: relative;
   max-width: 500px;
   width: 100%;

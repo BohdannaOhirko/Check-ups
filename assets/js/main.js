@@ -1,6 +1,6 @@
 import { loadForm } from "./form-validation.js";
-import { initCheckupPage } from "./checkup-detailes.js";
-import { initSearchModule } from "./search.js";
+import { initCheckupPage } from "./checkup-details.js";
+import { initSearchPage } from "./search.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("checkup-container")) {
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (document.getElementById("searchInput")) {
-    initSearchModule();
+    initSearchPage(); //
   }
 
   const modal = document.getElementById("formModal");

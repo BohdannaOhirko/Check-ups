@@ -1,81 +1,116 @@
 export function renderCheckupDetails(
   checkup,
   container,
+  initialType = "basic",
   showPackageToggle = true
 ) {
-  console.log("replaceBannerWithCheckup запускається", checkup);
   if (!checkup || !container) {
     console.error("Не передано чекап або контейнер");
     return;
   }
 
+  const storageKey = `selectedPackage-${checkup.id}`;
+  const savedType = initialType || localStorage.getItem(storageKey) || "basic";
+
   container.innerHTML = `
-  <div class="checkup-layout">
-    <div class="checkup-image-column">
-      <img src="${checkup.image}" alt="${checkup.name}" class="checkup-img" />
-    </div>
-    <div class="checkup-info-column">
-      <h3>${checkup.name} чекап</h3>
-      <p>${checkup.description}</p>
+    <div class="checkup-layout">
+      <div class="checkup-image-column">
+        <img src="${checkup.image}" alt="Заставка чекапу ${
+    checkup.name
+  }" class="checkup-img" />
+      </div>
+      <div class="checkup-info-column">
+        <h3>${checkup.name} чекап</h3>
+        <p>${checkup.description}</p>
 
-      ${
-        showPackageToggle
-          ? `
-        <nav aria-label="Перемикач пакета">
-          <ul>
-            <li><button class="switch-btn active" data-type="basic">Базовий</button></li>
-            <li><button class="switch-btn" data-type="extended">Розширений</button></li>
-          </ul>
-        </nav>
-      `
-          : ""
-      }
+        ${showPackageToggle ? renderTabs(savedType) : ""}
 
-      <div class="package-details"></div>
+        <div class="package-details"></div>
+      </div>
     </div>
-  </div>
-`;
+  `;
 
   const detailsDiv = container.querySelector(".package-details");
+  const buttons = container.querySelectorAll(".switch-btn");
 
-  const showPackage = (type) => {
+  const renderPackage = (type) => {
     const pkg = checkup.packages?.[type];
     if (!pkg) {
       detailsDiv.innerHTML = `<p>Дані для пакету "${type}" відсутні.</p>`;
       return;
     }
+
     detailsDiv.innerHTML = `
       <h4>${pkg.name} пакет</h4>
       <ul>
         ${pkg.services
           .map(
             (s) =>
-              `<li><i class="fas fa-check" style="color: green; margin-right: 10px;"></i>${s}</li>`
+              `<li><i class="fas fa-check" aria-hidden="true"></i>${s}</li>`
           )
           .join("")}
       </ul>
       <p class="price-color">Базова вартість: від ${pkg.base_price} грн</p>
     `;
+
+    buttons.forEach((b) => {
+      const isActive = b.dataset.type === type;
+      b.classList.toggle("active", isActive);
+      b.setAttribute("aria-selected", isActive);
+    });
+
+    localStorage.setItem(storageKey, type);
   };
 
   if (showPackageToggle) {
-    showPackage("basic");
-    const buttons = container.querySelectorAll(".switch-btn");
+    renderPackage(savedType);
+
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        buttons.forEach((b) => b.classList.remove("active"));
-        btn.classList.add("active");
-        showPackage(btn.dataset.type);
+        renderPackage(btn.dataset.type);
       });
     });
+
+    container.addEventListener("keydown", (e) => {
+      if (!["ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      const current = [...buttons].findIndex((b) =>
+        b.classList.contains("active")
+      );
+      const next =
+        e.key === "ArrowRight"
+          ? (current + 1) % buttons.length
+          : (current - 1 + buttons.length) % buttons.length;
+      buttons[next].focus();
+      buttons[next].click();
+    });
   } else {
-    showPackage("basic");
+    renderPackage("basic");
   }
 }
+
+function renderTabs(activeType) {
+  return `
+    <nav aria-label="Перемикач пакета" role="tablist">
+      <ul>
+        <li><button role="tab" class="switch-btn ${
+          activeType === "basic" ? "active" : ""
+        }" data-type="basic" aria-selected="${
+    activeType === "basic"
+  }">Базовий</button></li>
+        <li><button role="tab" class="switch-btn ${
+          activeType === "extended" ? "active" : ""
+        }" data-type="extended" aria-selected="${
+    activeType === "extended"
+  }">Розширений</button></li>
+      </ul>
+    </nav>
+  `;
+}
+
 export function replaceBannerWithCheckup(checkup) {
   const oldBanner = document.getElementById("initialBanner");
   if (!oldBanner) {
-    console.error(" Банер не знайдено");
+    console.error("Банер не знайдено");
     return;
   }
 
@@ -84,6 +119,5 @@ export function replaceBannerWithCheckup(checkup) {
   newBanner.id = "initialBanner";
 
   document.body.replaceChild(newBanner, oldBanner);
-
-  renderCheckupDetails(checkup, newBanner, true);
+  renderCheckupDetails(checkup, newBanner, "basic", true);
 }
