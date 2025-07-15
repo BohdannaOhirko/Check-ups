@@ -208,7 +208,7 @@
           Комплексне обстеження для раннього виявлення захворювань і контролю
           здоров'я.
         </p>
-        <a href="#" class="button-link openFormBtn">
+        <button class="button-link openFormBtn">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -226,8 +226,8 @@
             <rect x="7" y="14" width="2" height="2" />
             <rect x="11" y="14" width="2" height="2" />
             <rect x="15" y="14" width="2" height="2" /></svg
-          >Записатися на чекап</a
-        >
+          >Записатися на чекап
+        </button>
       </div>
     </section>
     <section
@@ -282,14 +282,14 @@
       <div class="container">
         <h2>Пакети чекапів</h2>
         <div class="checkup-list">
-          <div class="checkup-item">
+          <div class="checkup-item" data-id="adult-checkup">
             <img
               src="/assets/images/Дорослий.png"
               alt="Дорослий чекап"
               class="checkup-img"
             />
             <h3>Дорослий чекап</h3>
-            <p class="price">від 3000 грн</p>
+            <p class="price">від <span data-price="total"></span></p>
             <div class="checkup-buttons">
               <a
                 href="checkup-details.html?checkup=adult-checkup"
@@ -300,14 +300,14 @@
             </div>
           </div>
 
-          <div class="checkup-item">
+          <div class="checkup-item" data-id="female-checkup">
             <img
               src="/assets/images/Жіночий.png"
               alt="Жіночий чекап"
               class="checkup-img"
             />
             <h3>Жіночий чекап</h3>
-            <p class="price">від 3500 грн</p>
+            <p class="price">від <span data-price="total"></span></p>
             <div class="checkup-buttons">
               <a
                 href="checkup-details.html?checkup=female-checkup"
@@ -318,14 +318,14 @@
             </div>
           </div>
 
-          <div class="checkup-item">
+          <div class="checkup-item" data-id="male-checkup">
             <img
               src="/assets/images/Чоловічий.png"
               alt="Чоловічий чекап"
               class="checkup-img"
             />
             <h3>Чоловічий чекап</h3>
-            <p class="price">від 3400 грн</p>
+            <p class="price">від <span data-price="total"></span></p>
             <div class="checkup-buttons">
               <a
                 href="checkup-details.html?checkup=male-checkup"
@@ -336,14 +336,14 @@
             </div>
           </div>
 
-          <div class="checkup-item">
+          <div class="checkup-item" data-id="child-checkup">
             <img
               src="/assets/images/Дитячий.png"
               alt="Дитячий чекап"
               class="checkup-img"
             />
             <h3>Дитячий чекап</h3>
-            <p class="price">від 2800 грн</p>
+            <p class="price">від <span data-price="total"></span></p>
             <div class="checkup-buttons">
               <a
                 href="checkup-details.html?checkup=child-checkup"
@@ -360,6 +360,6 @@
     <div id="formModal" class="modal-overlay">
       <div id="modal"></div>
     </div>
-    <script type="module" src="/assets/js/main.js"></script>
+    <script type="module" src="/assets/js/main.js" defer></script>
   </body>
 </html>

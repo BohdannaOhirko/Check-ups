@@ -1,3 +1,9 @@
+import {
+  getPricesForAllPackages,
+  formatPrice,
+  updatePriceDisplay,
+} from "./price-calculator.js";
+
 export function renderCheckupDetails(
   checkup,
   container,
@@ -40,18 +46,24 @@ export function renderCheckupDetails(
       return;
     }
 
+    const allPrices = getPricesForAllPackages(checkup);
+    const selectedPrices = allPrices[type];
+
     detailsDiv.innerHTML = `
-      <h4>${pkg.name} пакет</h4>
-      <ul>
-        ${pkg.services
-          .map(
-            (s) =>
-              `<li><i class="fas fa-check" aria-hidden="true"></i>${s}</li>`
-          )
-          .join("")}
-      </ul>
-      <p class="price-color">Базова вартість: від ${pkg.base_price} грн</p>
-    `;
+    <h4>${pkg.name} пакет</h4>
+    <ul>
+      ${pkg.services
+        .map(
+          (s) => `<li><i class="fas fa-check" aria-hidden="true"></i>${s}</li>`
+        )
+        .join("")}
+    </ul>
+    <div class="checkup-price-box">
+  <p class="price-color">Загальна вартість: від <span data-price="total"></span></p>
+</div>
+  `;
+
+    updatePriceDisplay(detailsDiv, selectedPrices);
 
     buttons.forEach((b) => {
       const isActive = b.dataset.type === type;

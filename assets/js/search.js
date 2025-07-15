@@ -50,7 +50,9 @@ function renderResults(results) {
 }
 
 function handleSearch() {
-  const searchValue = getSearchValue().trim();
+  restoreInitialBanner();
+
+  const searchValue = getSearchValue().trim().toLowerCase();
 
   if (searchValue.length < 2) {
     displayInitialContent();
@@ -60,21 +62,20 @@ function handleSearch() {
   const results = filterCheckups(searchValue, allCheckupsData);
 
   if (results.length === 0) {
-    restoreInitialBanner();
-    renderResults([]);
-    return;
+    toggleContentVisibility(false);
   }
 
-  if (results.length === 1) {
-    restoreInitialBanner();
+  if (
+    results.length === 1 ||
+    (searchValue.length >= 3 &&
+      results[0].name.toLowerCase().includes(searchValue))
+  ) {
     replaceBannerWithCheckup(results[0]);
     toggleContentVisibility(false);
     return;
   }
 
-  restoreInitialBanner();
-  toggleContentVisibility(true);
-  renderResults(results);
+  toggleContentVisibility(false);
 }
 export function initSearchPage() {
   initialBannerElement = document.getElementById("initialBanner");
@@ -93,4 +94,8 @@ export function initSearchPage() {
 
   const searchInput = document.getElementById("searchInput");
   searchInput.addEventListener("input", handleSearch);
+  window.debugSearch = () => {
+    const results = filterCheckups("дор", allCheckupsData);
+    console.log("Результати пошуку 'дор':", results);
+  };
 }

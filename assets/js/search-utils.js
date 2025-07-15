@@ -4,18 +4,20 @@ export function getSearchValue() {
 
 export function filterCheckups(searchValue, checkups) {
   const normalized = searchValue.trim().toLowerCase();
-
   if (!normalized) return [];
 
+  const words = normalized.split(/\s+/);
+
   return checkups.filter((item) => {
-    const name = item.name?.toLowerCase() || "";
-    const description = item.description?.toLowerCase() || "";
+    const name = (item.name || "").toLowerCase();
+    const description = (item.description || "").toLowerCase();
     const keywords = (item.keywords || []).join(" ").toLowerCase();
 
-    return (
-      name.includes(normalized) ||
-      description.includes(normalized) ||
-      keywords.includes(normalized)
+    return words.every(
+      (word) =>
+        name.includes(word) ||
+        description.includes(word) ||
+        keywords.includes(word)
     );
   });
 }

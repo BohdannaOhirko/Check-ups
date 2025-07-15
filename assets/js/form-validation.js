@@ -1,10 +1,13 @@
 import { nextStep, prevStep } from "./form-renderer.js";
 
-const modal = document.getElementById("formModal");
-const openModalBtns = document.querySelectorAll(".openFormBtn");
-const modalContent = document.getElementById("modal");
-
+/**
+ * Завантажує HTML форми у модальне вікно
+ * @param {HTMLElement} modal - модалка (#formModal)
+ * @param {HTMLElement} modalContent - вміст модалки (#modal)
+ */
 export function loadForm(modal, modalContent) {
+  modalContent.innerHTML = "";
+
   fetch("/main/apointment-form.html")
     .then((response) => {
       if (!response.ok) {
@@ -12,8 +15,8 @@ export function loadForm(modal, modalContent) {
       }
       return response.text();
     })
-    .then((data) => {
-      modalContent.innerHTML = data;
+    .then((html) => {
+      modalContent.innerHTML = html;
 
       const nextBtn = modalContent.querySelector("#nextBtn");
       const prevBtn = modalContent.querySelector("#prevBtn");
@@ -27,16 +30,12 @@ export function loadForm(modal, modalContent) {
           event.preventDefault();
 
           const formData = new FormData(event.target);
-          console.log("Name:", formData.get("name"));
-          console.log("Phone:", formData.get("phone"));
-          console.log("Email:", formData.get("email"));
-          console.log("Datetime:", formData.get("datetime"));
-          console.log("Checkup:", formData.get("checkup"));
-          console.log("Consent:", formData.get("consent"));
+          console.table(Object.fromEntries(formData.entries()));
 
           form
             .querySelectorAll(".form-step")
             .forEach((el) => el.classList.add("hide"));
+
           const successMsg = form.querySelector("#successMessage");
           if (successMsg) {
             successMsg.classList.remove("hide");
@@ -54,7 +53,9 @@ export function loadForm(modal, modalContent) {
       }
     })
     .catch((error) => {
-      console.error("Помилка:", error);
-      modalContent.innerHTML = "<p>Вибачте, не вдалося завантажити форму.</p>";
+      console.error("Помилка завантаження форми:", error);
+      modalContent.innerHTML =
+        "<p class='form-error' style='text-align:center;'>Форма недоступна. Спробуйте пізніше.</p>";
     });
+  console.log("Форма вставлена в DOM:", modalContent.innerHTML);
 }
