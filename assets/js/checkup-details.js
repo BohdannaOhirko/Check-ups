@@ -1,3 +1,4 @@
+import { StorageManager } from "./storage-manager.js";
 import { renderCheckupDetails } from "./checkup-renderer.js";
 
 export function initCheckupPage() {
@@ -18,9 +19,10 @@ export function initCheckupPage() {
         return;
       }
 
-      const selected =
-        localStorage.getItem(`selectedPackage-${checkup.id}`) || "basic";
-      renderCheckupDetails(checkup, container, selected);
+      const selected = StorageManager.getSelectedCheckup();
+      const selectedPackage = selected.package || "basic";
+
+      renderCheckupDetails(checkup, container, selectedPackage);
     })
     .catch((err) => {
       console.error("Помилка при завантаженні JSON:", err);

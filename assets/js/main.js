@@ -1,11 +1,12 @@
-import { loadForm } from "./form-validation.js";
+import { loadForm } from "./form.js";
 import { initCheckupPage } from "./checkup-details.js";
 import { initSearchPage } from "./search.js";
 import {
   getPricesForAllPackages,
   updatePriceDisplay,
 } from "./price-calculator.js";
-
+import { initFormValidation } from "./form-validation.js";
+import "./dropdown-checkup.js";
 document.addEventListener("DOMContentLoaded", () => {
   fetch("/data/data.json")
     .then((res) => res.json())
@@ -42,7 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       console.log("Натиснута будь-яка кнопка .openFormBtn");
       modal.classList.add("show");
+
       loadForm(modal, modalContent);
+
+      const observer = new MutationObserver(() => {
+        if (document.getElementById("checkupForm")) {
+          initFormValidation();
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(modalContent, { childList: true, subtree: true });
     }
 
     if (event.target === modal) {

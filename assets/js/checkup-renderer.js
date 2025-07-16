@@ -1,8 +1,28 @@
+import { StorageManager } from "./storage-manager.js";
+
 import {
   getPricesForAllPackages,
   formatPrice,
   updatePriceDisplay,
 } from "./price-calculator.js";
+
+export async function renderCheckup(checkupId) {
+  try {
+    const response = await fetch("../data/data.json");
+    const data = await response.json();
+
+    const checkups = data.checkups;
+    const checkup = checkups.find((c) => c.id === checkupId);
+    if (!checkup) {
+      console.error("Чекап не знайдено:", checkupId);
+      return;
+    }
+
+    replaceBannerWithCheckup(checkup);
+  } catch (err) {
+    console.error("Помилка при завантаженні чекапів:", err);
+  }
+}
 
 export function renderCheckupDetails(
   checkup,
@@ -16,7 +36,7 @@ export function renderCheckupDetails(
   }
 
   const storageKey = `selectedPackage-${checkup.id}`;
-  const savedType = initialType || localStorage.getItem(storageKey) || "basic";
+  const savedType = initialType || StorageManager.load(storageKey) || "basic";
 
   container.innerHTML = `
     <div class="checkup-layout">
@@ -71,7 +91,7 @@ export function renderCheckupDetails(
       b.setAttribute("aria-selected", isActive);
     });
 
-    localStorage.setItem(storageKey, type);
+    StorageManager.save(storageKey, type);
   };
 
   if (showPackageToggle) {
