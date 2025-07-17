@@ -39,4 +39,20 @@
   .banner .button-link {
     margin-left: 20px;
   }
+  .checkup-layout {
+    align-items: center;
+  }
+
+  .checkup-details img {
+    width: 100%;
+    margin-left: 20px;
+    margin-bottom: 100px;
+  }
+  .checkup-info-column h3 {
+    margin-top: 20px;
+  }
+  .package-details {
+    background: none;
+    box-shadow: none;
+  }
 }

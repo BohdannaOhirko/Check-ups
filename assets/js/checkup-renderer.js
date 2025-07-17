@@ -11,8 +11,8 @@ export async function renderCheckup(checkupId) {
     const response = await fetch("../data/data.json");
     const data = await response.json();
 
-    const checkups = data.checkups;
-    const checkup = checkups.find((c) => c.id === checkupId);
+    const baseId = checkupId.split("/")[0];
+    const checkup = data.checkups.find((c) => c.id === baseId);
     if (!checkup) {
       console.error("Чекап не знайдено:", checkupId);
       return;

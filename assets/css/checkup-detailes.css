@@ -96,7 +96,7 @@ nav[aria-label="Перемикач пакета"] li button:focus {
   padding: 1.5rem;
   border-radius: 6px;
   margin-top: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
 }
 
 .package-details h4 {
@@ -107,10 +107,13 @@ nav[aria-label="Перемикач пакета"] li button:focus {
 }
 
 .package-details ul {
-  padding-left: 10px;
+  padding-left: 50px;
   margin: 0.5rem 0;
+  text-align: left;
 }
-
+.fa-check:before {
+  padding-right: 10px;
+}
 .package-details li {
   margin-bottom: 0.5rem;
   color: var(--dark-text);
